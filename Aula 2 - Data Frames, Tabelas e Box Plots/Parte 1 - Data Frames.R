@@ -6,10 +6,6 @@
 #e cada linha representa uma observação (um produto, um cliente,
 #um funcionário, uma venda).
 
-#Antes de começar, no RStudio, clique em:
-#Session > Set Working Directory > To Source File Location
-#Assim o R passa a procurar os arquivos na pasta desta aula.
-
 
 #1. Criando um data frame a partir de vetores
 
@@ -87,26 +83,103 @@ produtos
 sum(produtos$valor_estoque)
 
 
-#5. Importando dados de um arquivo
+#5. Um data frame maior: o quadro de pessoal da empresa
 
-#Na prática, os dados de uma empresa raramente são digitados no R.
-#Eles chegam em planilhas ou arquivos exportados de sistemas (ERP, CRM).
-#O arquivo funcionarios.csv contém dados fictícios do quadro de pessoal
-#de uma empresa comercial com 60 funcionários.
+#Vamos montar, com os mesmos passos da seção 1, o cadastro fictício de
+#uma empresa comercial com 60 funcionários. Primeiro criamos um vetor
+#para cada coluna e depois juntamos todos com data.frame().
 
-#A função read.csv2() lê arquivos no padrão brasileiro do Excel:
-#colunas separadas por ponto e vírgula (;) e decimais com vírgula (,).
+#Cada vetor abaixo tem 60 elementos, um para cada funcionário, sempre
+#na mesma ordem: o primeiro valor de cada vetor é do funcionário 1001,
+#o segundo é do funcionário 1002, e assim por diante.
+#Dica: selecione todo o bloco, do vetor matricula até o data.frame(),
+#e rode de uma só vez com Ctrl + Enter.
 
-funcionarios = read.csv2("dados/funcionarios.csv", fileEncoding = "UTF-8")
+matricula = 1001:1060 #Números de 1001 a 1060, em sequência
 
-#Se aparecer o erro "cannot open file", o R não encontrou o arquivo.
-#Alternativa: a linha abaixo abre uma janela para escolher o arquivo.
-#funcionarios = read.csv2(file.choose(), fileEncoding = "UTF-8")
+departamento = c("Vendas", "Recursos Humanos", "Logística", "Logística",
+                 "Vendas", "Marketing", "Financeiro", "Vendas", "Vendas",
+                 "Vendas", "Logística", "Marketing", "Vendas", "Vendas",
+                 "Vendas", "Logística", "Logística", "Financeiro", "Vendas",
+                 "Recursos Humanos", "Marketing", "Financeiro", "Vendas",
+                 "Recursos Humanos", "Logística", "Financeiro", "Logística",
+                 "Marketing", "Vendas", "Logística", "Vendas",
+                 "Recursos Humanos", "Vendas", "Vendas", "Vendas",
+                 "Marketing", "Financeiro", "Marketing", "Logística",
+                 "Logística", "Marketing", "Logística", "Vendas",
+                 "Recursos Humanos", "Recursos Humanos", "Logística",
+                 "Financeiro", "Financeiro", "Recursos Humanos",
+                 "Financeiro", "Recursos Humanos", "Financeiro", "Vendas",
+                 "Marketing", "Marketing", "Financeiro", "Marketing",
+                 "Logística", "Logística", "Vendas")
+
+nivel = c("Assistente", "Coordenador", "Analista", "Analista", "Analista",
+          "Coordenador", "Assistente", "Coordenador", "Assistente",
+          "Analista", "Analista", "Analista", "Analista", "Analista",
+          "Assistente", "Analista", "Assistente", "Assistente", "Assistente",
+          "Analista", "Analista", "Analista", "Analista", "Assistente",
+          "Analista", "Assistente", "Coordenador", "Assistente",
+          "Assistente", "Assistente", "Analista", "Analista", "Coordenador",
+          "Assistente", "Analista", "Coordenador", "Analista", "Assistente",
+          "Assistente", "Analista", "Analista", "Assistente", "Assistente",
+          "Assistente", "Assistente", "Assistente", "Analista", "Analista",
+          "Analista", "Assistente", "Coordenador", "Coordenador", "Analista",
+          "Assistente", "Assistente", "Coordenador", "Analista",
+          "Coordenador", "Analista", "Analista")
+
+modalidade = c("Híbrido", "Remoto", "Presencial", "Presencial", "Híbrido",
+               "Híbrido", "Híbrido", "Híbrido", "Híbrido", "Híbrido",
+               "Presencial", "Híbrido", "Presencial", "Híbrido", "Híbrido",
+               "Presencial", "Presencial", "Híbrido", "Presencial",
+               "Presencial", "Remoto", "Remoto", "Presencial", "Híbrido",
+               "Presencial", "Híbrido", "Presencial", "Presencial",
+               "Híbrido", "Presencial", "Presencial", "Híbrido", "Híbrido",
+               "Híbrido", "Híbrido", "Híbrido", "Presencial", "Presencial",
+               "Presencial", "Presencial", "Presencial", "Híbrido",
+               "Híbrido", "Híbrido", "Presencial", "Presencial",
+               "Presencial", "Híbrido", "Presencial", "Presencial", "Remoto",
+               "Remoto", "Presencial", "Híbrido", "Presencial", "Remoto",
+               "Híbrido", "Presencial", "Presencial", "Híbrido")
+
+tempo_empresa = c(9.5, 7, 10.3, 2.8, 13.5, 15, 3.1, 13.8, 8.4, 14.7, 2.6,
+                  1.4, 14.3, 11.5, 3.5, 2.1, 6.4, 5.9, 14.5, 13.2, 6.9, 12.5,
+                  11.8, 6.5, 5.2, 5.5, 13, 8.7, 3.4, 8.5, 2.3, 0.6, 13.1,
+                  4.6, 13.9, 18.8, 2.3, 7.2, 9.3, 9.1, 6.1, 13.1, 2.2, 2.8,
+                  9.8, 3.1, 11.9, 6.6, 1, 5.8, 8.8, 10.7, 3.6, 11.8, 6.6,
+                  15.8, 11.7, 10, 4.3, 11)
+
+salario = c(3157.8, 9791.43, 5775.89, 4469.97, 5780.78, 12704.88, 3286.08,
+            11013.83, 3212.56, 6086.79, 4387.04, 5502.17, 6766.26, 6756.88,
+            2557.94, 4348.67, 2533.79, 3167.14, 3132.59, 6147.4, 5906.33,
+            7022.49, 6408.51, 2813.35, 4872.25, 3468.69, 10767.71, 3032,
+            2602.67, 3094.7, 5103.11, 4446.08, 19800, 2909.86, 6417.65,
+            11991.81, 6316.46, 3129.3, 3279.08, 5080.07, 5827.24, 3202.04,
+            2745.22, 2512.35, 2898.96, 7900, 6888.62, 6480.87, 5043.23,
+            3204.46, 10073.43, 12223, 5421.31, 3359.38, 3199.9, 12927.9,
+            6998.67, 9967.85, 4945.96, 6185.59)
+
+horas_treinamento = c(38, 32, 6, 28, 11, 39, 35, 17, 31, 10, 11, 27, 23, 32,
+                      14, 30, 29, 36, 10, 29, 26, 30, 57, 34, 35, 13, 23, 26,
+                      18, 27, 24, 37, 48, 30, 22, 20, 21, 23, 27, 14, 22, 38,
+                      45, 41, 6, 40, 20, 39, 31, 45, 37, 31, 21, 23, 29, 7,
+                      25, 21, 18, 46)
+
+avaliacao = c(8.6, 7.7, 6.1, 8.1, 6, 6.2, 7.1, 6.1, 8.4, 4.3, 6.9, 8.4, 6.9,
+              7.7, 4.5, 6.6, 6.6, 6.1, 5.7, 5.9, 6.5, 7.5, 8.6, 7.3, 6.1,
+              7.5, 6.6, 5.8, 6.4, 6.1, 6, 7.7, 8.6, 7.9, 6.9, 6.4, 7.2, 7.8,
+              9.7, 7, 6.3, 7.6, 9.4, 8.3, 4, 8.7, 8.1, 7.9, 8, 8.7, 6.2, 6.4,
+              7.9, 6.2, 6.9, 5.8, 5.2, 5.8, 7.4, 8.9)
+
+#Juntando os vetores no data frame funcionarios
+
+funcionarios = data.frame(matricula, departamento, nivel, modalidade,
+                          tempo_empresa, salario, horas_treinamento,
+                          avaliacao)
 
 View(funcionarios)
 
 
-#6. Explorando o data frame importado
+#6. Explorando o data frame da empresa
 
 dim(funcionarios)
 names(funcionarios)

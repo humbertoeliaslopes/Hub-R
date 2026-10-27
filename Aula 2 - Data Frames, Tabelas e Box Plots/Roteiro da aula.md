@@ -7,7 +7,7 @@ Roteiro do professor para uma aula de aproximadamente 3 horas, destinada a aluno
 Ao final da aula, o aluno deverá ser capaz de:
 
 1. explicar o que é um data frame e relacioná-lo aos vetores atômicos vistos na aula anterior;
-2. criar um data frame a partir de vetores e importar dados de um arquivo CSV no padrão brasileiro;
+2. criar data frames a partir de vetores, tanto pequenos quanto com dezenas de observações;
 3. inspecionar um data frame, acessar colunas com `$`, criar novas colunas e selecionar observações com `subset()`;
 4. elaborar tabelas de frequência simples e de dupla entrada, com percentuais, e tabelas de médias e somas por grupo;
 5. construir e interpretar box plots, identificando mediana, quartis, amplitude interquartil e valores atípicos;
@@ -28,16 +28,14 @@ Todas as funções utilizadas pertencem à instalação básica do R. Não é pr
 | `Parte 3 - Box Plots.R` | Script demonstrado pelo professor no Bloco 3 |
 | `Exercícios.R` | Lista do aluno, com espaço para o código de cada exercício |
 | `Gabarito.R` | Solução completa, com os resultados esperados em comentário |
-| `dados/funcionarios.csv` | Quadro de pessoal fictício de uma empresa comercial (60 funcionários), usado nas demonstrações |
-| `dados/vendas_filiais.csv` | Desempenho mensal fictício de cinco filiais de uma rede de lojas (60 registros), usado nos exercícios |
 
 Os dois conjuntos de dados são **fictícios**, criados para fins didáticos. Convém dizer isso à turma.
 
 ## 4. Preparação antes da aula
 
-1. Disponibilize a pasta `Aula 2 - Data Frames, Tabelas e Box Plots` completa (scripts e subpasta `dados`). O mais simples é pedir que os alunos baixem o repositório em *Code > Download ZIP* e descompactem o arquivo.
+1. Disponibilize os scripts da pasta `Aula 2 - Data Frames, Tabelas e Box Plots`. Os dados estão digitados nos próprios scripts, em vetores, e por isso nenhum arquivo externo precisa ser lido. Cada script funciona sozinho, tanto no RStudio instalado quanto no Posit Cloud: basta abri-lo ou enviá-lo pelo painel *Files > Upload*.
 2. Confirme que os computadores do laboratório abrem o RStudio.
-3. Oriente os alunos a abrir o script pelo RStudio e a clicar em **Session > Set Working Directory > To Source File Location**. Esse passo evita o erro mais comum da aula, o `cannot open file`. Se ainda assim o arquivo não for encontrado, o script traz a alternativa com `file.choose()`, que abre uma janela de seleção.
+3. Oriente os alunos a rodar cada bloco de dados inteiro de uma vez, selecionando do primeiro vetor até a linha do `data.frame()` e pressionando Ctrl + Enter. Um vetor rodado pela metade é a causa mais provável de erro nesta aula.
 4. Não distribua o `Gabarito.R` antes do fim da aula.
 
 ## 5. Cronograma
@@ -72,18 +70,18 @@ Apresente a pergunta que guiará a aula: **como transformar uma base de dados de
 | 2. Conhecendo o data frame | `str()` é a primeira função a rodar em qualquer base nova: mostra o tipo de cada coluna. Em `summary()`, chame atenção para a média e a mediana do preço. |
 | 3. Operador `$` | `produtos$preco` devolve um vetor atômico. Por isso `mean()`, `sum()` e `max()` funcionam como na aula anterior. |
 | 4. Nova coluna | Valor do estoque é uma conta que o gestor faz no Excel; no R, a conta é feita para todas as linhas de uma vez. |
-| 5. Importação | Explique o padrão brasileiro do Excel (`;` separa colunas e `,` separa decimais), que justifica o uso de `read.csv2()`. No código do R, porém, o decimal é sempre o ponto. |
+| 5. Data frame maior | É o mesmo procedimento da seção 1, agora com 60 funcionários: um vetor por coluna e `data.frame()` ao final. Destaque que a ordem dos valores precisa ser a mesma em todos os vetores, porque cada posição corresponde a um funcionário. Comente que, nas empresas, esses dados costumam vir de planilhas ou de sistemas, assunto de uma aula futura. |
 | 6. Exploração | Pergunte: qual é a folha de pagamento mensal da empresa? Os alunos devem chegar a `sum(funcionarios$salario)`. |
 | 7. Fatores | Conecte explicitamente com o Script 4. Mostre que a ordem dos níveis hierárquicos só fica correta quando informada em `levels`. |
 | 8. Novas colunas | `ifelse()` cria categorias a partir de números. A coluna `faixa_tempo` será usada no Bloco 2. |
 | 9. `subset()` | Escreva no quadro a tabela de operadores. Insista que `==` compara e `=` atribui. Compare as horas de treinamento dos destaques com as de toda a empresa e pergunte o que isso sugere ao RH. |
 | 10. Exportação | O arquivo gerado abre no Excel. Mostre-o aberto, se houver tempo. |
 
-**Exercícios 1 a 4 (20 min).** Circule pela sala. O exercício 1 repete a lógica da seção 1 em outro contexto; o exercício 2 repete a importação; os exercícios 3 e 4 combinam `$`, nova coluna, fator e `subset()`.
+**Exercícios 1 a 4 (20 min).** Circule pela sala. O exercício 1 repete a lógica da seção 1 em outro contexto; o exercício 2 monta o data frame de vendas a partir dos vetores já digitados; os exercícios 3 e 4 combinam `$`, nova coluna, fator e `subset()`.
 
 ### 6.3 Bloco 2: elaboração de tabelas (40 min)
 
-**Demonstração (22 min), script `Parte 2 - Tabelas.R`.** O início do script repete a importação e a criação dos fatores, para que a parte funcione de forma independente.
+**Demonstração (22 min), script `Parte 2 - Tabelas.R`.** O início do script repete os vetores de dados e a criação dos fatores, para que a parte funcione de forma independente.
 
 | Seção do script | O que enfatizar |
 |---|---|
@@ -163,18 +161,18 @@ Ao final, disponibilize o `Gabarito.R` à turma.
 
 | Sintoma | Causa provável | Orientação |
 |---|---|---|
-| `cannot open file 'dados/...'` | Pasta de trabalho errada | Session > Set Working Directory > To Source File Location, ou `file.choose()` |
+| `arguments imply differing number of rows` | Algum vetor do bloco de dados não foi rodado inteiro ou foi alterado | Rodar novamente o bloco completo, do primeiro vetor até o `data.frame()` |
+| `object 'salario' not found` ao criar o data frame | O bloco de vetores não foi rodado antes do `data.frame()` | Rodar o bloco de dados desde o início |
 | `object 'Salario' not found` | O R diferencia maiúsculas de minúsculas | Conferir o nome com `names()` |
 | `subset()` devolve zero linhas | Texto digitado diferente do dado (por exemplo, "Logistica" sem acento) | Conferir as categorias com `levels()` ou `table()` |
 | O console mostra `+` e não responde | Parêntese ou aspas sem fechar | Pressionar Esc e revisar a linha |
-| Acentos aparecem trocados | Codificação do arquivo | Manter `fileEncoding = "UTF-8"` no `read.csv2()` |
 | Erro ao usar `=` dentro de `subset()` | Confusão entre atribuir e comparar | Usar `==` para comparar |
 | Acentos trocados ao abrir no Excel um CSV exportado pelo R | O Excel não reconheceu a codificação UTF-8 | Abrir por *Dados > De Texto/CSV* e escolher a origem UTF-8 |
 | A imagem PNG fica vazia | Faltou o `dev.off()` | Rodar `dev.off()` e repetir o gráfico |
 
 ## 8. Dicionário de dados
 
-**`dados/funcionarios.csv`** (60 linhas, dados fictícios)
+**Data frame `funcionarios`** (60 linhas, dados fictícios, criado nas Partes 1, 2 e 3)
 
 | Coluna | Descrição | Tipo |
 |---|---|---|
@@ -187,7 +185,7 @@ Ao final, disponibilize o `Gabarito.R` à turma.
 | `horas_treinamento` | Horas de treinamento realizadas no último ano | número inteiro |
 | `avaliacao` | Nota da avaliação de desempenho, de 0 a 10 | número |
 
-**`dados/vendas_filiais.csv`** (60 linhas, 5 filiais por 12 meses, dados fictícios)
+**Data frame `vendas`** (60 linhas, 5 filiais por 12 meses, dados fictícios, criado nos exercícios)
 
 | Coluna | Descrição | Tipo |
 |---|---|---|
@@ -198,4 +196,4 @@ Ao final, disponibilize o `Gabarito.R` à turma.
 | `meta_atingida` | "Sim" se a filial alcançou a meta mensal | texto (categoria) |
 | `reclamacoes` | Reclamações registradas no SAC no mês | número inteiro |
 
-Os arquivos seguem o padrão brasileiro do Excel (separador `;` e decimal `,`) e a codificação UTF-8. Para mostrar à turma que se trata de uma planilha comum, abra-os no Excel por *Dados > De Texto/CSV*, escolhendo a origem UTF-8; com o duplo clique, algumas versões do Excel exibem os acentos de forma incorreta.
+Os dados são digitados nos scripts. No código do R, o separador decimal é sempre o ponto (por exemplo, `3157.8`), e não a vírgula usada no Excel.
