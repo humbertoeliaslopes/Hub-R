@@ -1,0 +1,61 @@
+"filial";"mes";"faturamento_mil";"clientes";"meta_atingida";"reclamacoes"
+"Belo Horizonte";"Jan";308,2;1894;"Não";12
+"Belo Horizonte";"Fev";344,8;1642;"Não";13
+"Belo Horizonte";"Mar";374,7;2392;"Não";10
+"Belo Horizonte";"Abr";366;1937;"Não";10
+"Belo Horizonte";"Mai";397,2;2179;"Não";17
+"Belo Horizonte";"Jun";422;2470;"Sim";16
+"Belo Horizonte";"Jul";427,9;2264;"Sim";14
+"Belo Horizonte";"Ago";375,5;2085;"Não";15
+"Belo Horizonte";"Set";419,8;2065;"Não";12
+"Belo Horizonte";"Out";447,3;2604;"Sim";26
+"Belo Horizonte";"Nov";542,4;2698;"Sim";16
+"Belo Horizonte";"Dez";624,4;3258;"Sim";22
+"Contagem";"Jan";239,8;1392;"Não";10
+"Contagem";"Fev";203,2;1112;"Não";6
+"Contagem";"Mar";236,6;1359;"Não";9
+"Contagem";"Abr";254,3;1580;"Não";14
+"Contagem";"Mai";271;1303;"Sim";10
+"Contagem";"Jun";274,6;1347;"Sim";7
+"Contagem";"Jul";265;1420;"Sim";9
+"Contagem";"Ago";262,9;1565;"Sim";9
+"Contagem";"Set";269,2;1408;"Sim";3
+"Contagem";"Out";254,6;1470;"Não";5
+"Contagem";"Nov";365,1;1900;"Sim";7
+"Contagem";"Dez";357,7;1830;"Sim";14
+"Betim";"Jan";158,1;844;"Não";3
+"Betim";"Fev";170,7;927;"Não";5
+"Betim";"Mar";202,4;1023;"Não";8
+"Betim";"Abr";186;940;"Não";1
+"Betim";"Mai";195,1;1027;"Não";10
+"Betim";"Jun";88,2;481;"Não";1
+"Betim";"Jul";231;1177;"Sim";9
+"Betim";"Ago";173,7;927;"Não";2
+"Betim";"Set";172,1;850;"Não";3
+"Betim";"Out";196,8;1160;"Não";3
+"Betim";"Nov";282,2;1534;"Sim";8
+"Betim";"Dez";323,6;1633;"Sim";12
+"Juiz de Fora";"Jan";240;1358;"Não";6
+"Juiz de Fora";"Fev";246,8;1502;"Não";9
+"Juiz de Fora";"Mar";297,4;1551;"Não";3
+"Juiz de Fora";"Abr";288,5;1622;"Não";13
+"Juiz de Fora";"Mai";311,2;1737;"Sim";4
+"Juiz de Fora";"Jun";298,1;1535;"Não";5
+"Juiz de Fora";"Jul";313;1488;"Sim";15
+"Juiz de Fora";"Ago";261,7;1410;"Não";5
+"Juiz de Fora";"Set";330,6;1684;"Sim";7
+"Juiz de Fora";"Out";305;1912;"Sim";12
+"Juiz de Fora";"Nov";387,9;2085;"Sim";15
+"Juiz de Fora";"Dez";393,5;2397;"Sim";12
+"Uberlândia";"Jan";281,6;1711;"Não";7
+"Uberlândia";"Fev";293,6;1454;"Não";5
+"Uberlândia";"Mar";326,3;1687;"Não";15
+"Uberlândia";"Abr";322;1678;"Não";8
+"Uberlândia";"Mai";308,9;1730;"Não";15
+"Uberlândia";"Jun";344,7;2032;"Sim";13
+"Uberlândia";"Jul";334,4;1759;"Não";14
+"Uberlândia";"Ago";291,5;1700;"Não";12
+"Uberlândia";"Set";340,6;1591;"Sim";7
+"Uberlândia";"Out";350,6;1886;"Sim";15
+"Uberlândia";"Nov";403,2;2136;"Sim";10
+"Uberlândia";"Dez";502,5;3026;"Sim";17
