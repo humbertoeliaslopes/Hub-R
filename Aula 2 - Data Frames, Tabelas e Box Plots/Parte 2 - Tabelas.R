@@ -226,13 +226,3 @@ aggregate(cbind(salario, avaliacao) ~ departamento,
 #Dois grupos ao mesmo tempo: salário médio por departamento e nível
 
 aggregate(salario ~ departamento + nivel, data = funcionarios, FUN = mean)
-
-
-#6. Exportando as tabelas para o Excel
-
-write.csv2(tabela_dep, "tabela_departamentos.csv", row.names = FALSE)
-write.csv2(folha_dep, "tabela_folha_departamentos.csv", row.names = FALSE)
-
-#Os arquivos são gravados na pasta de trabalho. Para saber qual é:
-
-getwd()

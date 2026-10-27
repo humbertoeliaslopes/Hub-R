@@ -127,7 +127,7 @@ reclamacoes = c(12, 13, 10, 10, 17, 16, 14, 15, 12, 26, 16, 22, 10, 6, 9, 14,
 #Exercício 7
 #Monte uma tabela com o faturamento anual de cada filial e a sua
 #participação percentual no faturamento da rede. Dê nomes claros às
-#colunas e exporte a tabela para o arquivo faturamento_por_filial.csv.
+#colunas.
 
 
 
@@ -169,8 +169,9 @@ reclamacoes = c(12, 13, 10, 10, 17, 16, 14, 15, 12, 26, 16, 22, 10, 6, 9, 14,
 
 
 #Exercício 12
-#Construa o box plot do ticket médio por filial e salve-o no arquivo
-#boxplot_ticket_filial.png.
+#Construa o box plot do ticket médio por filial, com título, rótulos nos
+#eixos e cor. As medianas das filiais são parecidas ou muito diferentes?
+#O que isso indica sobre a origem das diferenças de faturamento?
 
 
 
