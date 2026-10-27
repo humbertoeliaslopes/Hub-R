@@ -135,8 +135,6 @@ fat_filial
 #Belo Horizonte tem o maior faturamento anual (5.050,2 mil reais, 27,4%)
 #e Betim o menor (2.379,9 mil reais, 12,9%).
 
-write.csv2(fat_filial, "faturamento_por_filial.csv", row.names = FALSE)
-
 #Exercício 8
 
 aggregate(reclamacoes ~ filial, data = vendas, FUN = mean)
@@ -199,13 +197,17 @@ subset(vendas_betim, faturamento_mil < 150) #Junho, 88,2 mil reais e 481 cliente
 
 #Exercício 12
 
-png("boxplot_ticket_filial.png", width = 800, height = 600)
 boxplot(ticket_medio ~ filial, data = vendas,
         main = "Ticket médio por filial",
         xlab = "Filial",
         ylab = "Ticket médio (R$)",
         col = "orange")
-dev.off()
+
+aggregate(ticket_medio ~ filial, data = vendas, FUN = median)
+
+#As medianas são muito parecidas, entre 182 e 189 reais. Os clientes
+#gastam praticamente o mesmo em todas as filiais, e as diferenças de
+#faturamento vêm sobretudo do número de clientes atendidos.
 
 
 #ATIVIDADE INTEGRADORA

@@ -238,17 +238,7 @@ boxplot(salario ~ nivel, data = equipe_vendas,
 table(equipe_vendas$nivel)
 
 
-#6. Salvando o gráfico em arquivo de imagem
+#6. Levando o gráfico para um relatório
 
-#png() abre o arquivo, boxplot() desenha nele e dev.off() fecha e salva
-
-png("boxplot_salario_nivel.png", width = 800, height = 600)
-boxplot(salario ~ nivel, data = funcionarios,
-        main = "Salário por nível hierárquico",
-        xlab = "Nível",
-        ylab = "Salário mensal (R$)",
-        col = c("lightyellow", "lightgreen", "lightblue"))
-dev.off()
-
-#A imagem pode ser inserida em um relatório ou em uma apresentação.
-#No RStudio também é possível usar o botão Export da aba Plots.
+#Depois de desenhar o gráfico, use o botão Export da aba Plots e escolha
+#Copy to Clipboard para colar a figura no Word ou no PowerPoint.

@@ -75,7 +75,6 @@ Apresente a pergunta que guiará a aula: **como transformar uma base de dados de
 | 7. Fatores | Conecte explicitamente com o Script 4. Mostre que a ordem dos níveis hierárquicos só fica correta quando informada em `levels`. |
 | 8. Novas colunas | `ifelse()` cria categorias a partir de números. A coluna `faixa_tempo` será usada no Bloco 2. |
 | 9. `subset()` | Escreva no quadro a tabela de operadores. Insista que `==` compara e `=` atribui. Compare as horas de treinamento dos destaques com as de toda a empresa e pergunte o que isso sugere ao RH. |
-| 10. Exportação | O arquivo gerado abre no Excel. Mostre-o aberto, se houver tempo. |
 
 **Exercícios 1 a 4 (20 min).** Circule pela sala. O exercício 1 repete a lógica da seção 1 em outro contexto; o exercício 2 monta o data frame de vendas a partir dos vetores já digitados; os exercícios 3 e 4 combinam `$`, nova coluna, fator e `subset()`.
 
@@ -87,10 +86,9 @@ Apresente a pergunta que guiará a aula: **como transformar uma base de dados de
 |---|---|
 | 1. Frequência absoluta | `table()` conta quantas vezes cada categoria aparece. Vendas concentra 18 dos 60 funcionários. |
 | 2. Frequência relativa | `prop.table()` transforma contagens em proporções; multiplicar por 100 e usar `round()` produz os percentuais de um relatório. |
-| 3. Tabela como data frame | A tabela vira um data frame com colunas renomeadas e uma coluna de percentual. É o formato que será exportado e levado para uma apresentação. |
+| 3. Tabela como data frame | A tabela vira um data frame com colunas renomeadas e uma coluna de percentual. É o formato que pode ser levado para um relatório ou uma apresentação. |
 | 4. Dupla entrada | Leia com a turma: Logística é praticamente presencial (13 de 14), o que faz sentido para uma operação física, enquanto Vendas é majoritariamente híbrida. Explique a diferença entre percentual por linha (`margin = 1`) e por coluna (`margin = 2`) com uma pergunta para cada: "em Vendas, que parte trabalha em regime híbrido?" e "dos remotos, que parte é do Financeiro?". O rótulo `Sum` de `addmargins()` significa total. |
 | 5. `aggregate()` | Leia a fórmula em voz alta: "salário em função do departamento". Compare a média com a mediana do salário por departamento: em Logística a média (5.330) fica bem acima da mediana (4.671), sinal de alguns salários altos puxando a média. Essa observação prepara o Bloco 3. |
-| 6. Exportação | `getwd()` mostra onde os arquivos foram gravados. |
 
 **Exercícios 5 a 8 (18 min).** O exercício 8 abre uma discussão gerencial importante: a filial com mais reclamações também é a que atende mais clientes, e por isso indicadores relativos (por mil clientes) são mais justos para comparar unidades de portes diferentes.
 
@@ -107,9 +105,9 @@ Apresente a pergunta que guiará a aula: **como transformar uma base de dados de
 | 3. Valores atípicos | Calcule os limites com a turma: o limite superior é de R$ 12.095,81 e o inferior é negativo, o que significa que não há atípicos por baixo. Os quatro atípicos são coordenadores. Discuta: atípico não é sinônimo de erro. |
 | 4. Comparação de grupos | No gráfico por nível, o salário de coordenadores fica totalmente acima dos demais níveis. Aparece um assistente atípico (R$ 7.900, em Logística) que não aparecia no gráfico geral. Esse é um bom momento para mostrar que um valor é atípico em relação a um grupo de referência. Nos gráficos de avaliação por modalidade e de treinamento por nível, as caixas se sobrepõem bastante; pergunte se os dados permitem afirmar que uma modalidade gera melhor desempenho (a resposta é não). |
 | 5. Grupo selecionado | Em Vendas há só dois coordenadores. Use o exemplo para alertar sobre caixas construídas com poucas observações. |
-| 6. Salvar a imagem | `png()`, o gráfico e `dev.off()` sempre juntos. Mostre também o botão *Export* da aba *Plots*. |
+| 6. Gráfico no relatório | Mostre o botão *Export > Copy to Clipboard* da aba *Plots* e cole a figura em um documento. |
 
-**Exercícios 9 a 12 (18 min).** No exercício 10, quase todos os pontos acima das caixas são de novembro e dezembro, efeito da sazonalidade do varejo. No exercício 11, o mês de junho em Betim é o caso que exige investigação antes de qualquer decisão.
+**Exercícios 9 a 12 (18 min).** No exercício 10, quase todos os pontos acima das caixas são de novembro e dezembro, efeito da sazonalidade do varejo. No exercício 11, o mês de junho em Betim é o caso que exige investigação antes de qualquer decisão. No exercício 12, as medianas do ticket médio quase não variam entre as filiais, o que mostra que as diferenças de faturamento vêm do número de clientes.
 
 Nota técnica para o professor: o `boxplot()` do R calcula a caixa pelas "dobradiças" de Tukey (função `fivenum()`), enquanto `quantile()` usa, por padrão, outro método de interpolação. Em alguns conjuntos de dados os valores diferem ligeiramente, sem alterar a interpretação. O script menciona isso em uma linha para evitar dúvidas caso algum aluno compare os números.
 
@@ -167,8 +165,6 @@ Ao final, disponibilize o `Gabarito.R` à turma.
 | `subset()` devolve zero linhas | Texto digitado diferente do dado (por exemplo, "Logistica" sem acento) | Conferir as categorias com `levels()` ou `table()` |
 | O console mostra `+` e não responde | Parêntese ou aspas sem fechar | Pressionar Esc e revisar a linha |
 | Erro ao usar `=` dentro de `subset()` | Confusão entre atribuir e comparar | Usar `==` para comparar |
-| Acentos trocados ao abrir no Excel um CSV exportado pelo R | O Excel não reconheceu a codificação UTF-8 | Abrir por *Dados > De Texto/CSV* e escolher a origem UTF-8 |
-| A imagem PNG fica vazia | Faltou o `dev.off()` | Rodar `dev.off()` e repetir o gráfico |
 
 ## 8. Dicionário de dados
 

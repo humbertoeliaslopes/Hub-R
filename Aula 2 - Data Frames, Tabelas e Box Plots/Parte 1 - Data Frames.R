@@ -254,10 +254,3 @@ destaques = subset(funcionarios, avaliacao >= 8)
 nrow(destaques)
 mean(destaques$horas_treinamento) #Treinamento médio dos destaques
 mean(funcionarios$horas_treinamento) #Treinamento médio de todos
-
-
-#10. Salvando o data frame em um arquivo
-
-#O arquivo pode ser aberto no Excel e enviado para outra área da empresa
-
-write.csv2(equipe_vendas, "equipe_vendas.csv", row.names = FALSE)
