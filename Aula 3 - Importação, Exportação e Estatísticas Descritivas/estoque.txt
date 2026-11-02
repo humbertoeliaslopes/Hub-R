@@ -1,0 +1,19 @@
+codigo	produto	categoria	estoque	custo_unitario	ponto_pedido
+P001	Papel A4 (resma)	Papelaria	240	27.9	100
+P002	Caneta esferográfica (caixa)	Papelaria	65	41.5	30
+P003	Grampeador	Papelaria	18	32	10
+P004	Toner de impressora	Papelaria	9	389.9	12
+P005	Pasta suspensa	Papelaria	130	4.2	80
+P006	Calculadora de mesa	Papelaria	12	59.9	5
+P007	Cadeira de escritório	Mobiliário	6	689	4
+P008	Mesa de reunião	Mobiliário	2	1850	1
+P009	Notebook	Informática	4	4299	3
+P010	Monitor 24 polegadas	Informática	11	899	6
+P011	Teclado sem fio	Informática	25	119.9	15
+P012	Mouse sem fio	Informática	31	79.9	15
+P013	Café em grãos (kg)	Copa	14	64.5	20
+P014	Copo descartável (pacote)	Copa	80	9.8	50
+P015	Álcool em gel (litro)	Limpeza	46	18.9	30
+P016	Papel toalha (fardo)	Limpeza	22	52.3	25
+P017	Detergente (litro)	Limpeza	35	6.4	20
+P018	Saco de lixo (pacote)	Limpeza	60	12.7	40
